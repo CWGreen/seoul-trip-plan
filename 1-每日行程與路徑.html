@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>首爾跨年 6 天 5 夜・每日行程與路徑</title>
+<style>
+  :root{--ink:#24262b;--sub:#5f6672;--line:#dfe3ea;--paper:#fbfcfe;--bg:#e9eef5;--accent:#1f4e8c;--accent2:#c8433a;--rail:#1f4e8c;--rail2:#163a69;--ss:#3d7a4f;--gn:#7a5aa0;--hd:#d97b29;--jn:#8a5a2b;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","Microsoft JhengHei",-apple-system,"Segoe UI",sans-serif;line-height:1.6;font-size:15px;}
+  .wrap{max-width:860px;margin:0 auto;padding:30px 18px 60px;}
+  a.back{display:inline-block;margin-bottom:14px;color:var(--accent);text-decoration:none;font-weight:700;font-size:13.5px;}
+  a.back:hover{text-decoration:underline;}
+  header.hero{text-align:center;padding:28px 18px 22px;background:var(--paper);border:1px solid var(--line);border-radius:16px;margin-bottom:18px;box-shadow:0 2px 10px rgba(0,0,0,.06);}
+  header.hero .kicker{letter-spacing:.28em;color:var(--accent2);font-size:12px;margin-bottom:10px;font-weight:800;}
+  header.hero h1{margin:0;font-size:26px;font-weight:800;}
+  header.hero .dates{margin-top:10px;color:var(--sub);font-size:14px;}
+  header.hero .flight{margin-top:6px;color:var(--accent);font-weight:700;font-size:13.5px;}
+  nav.toc{position:sticky;top:0;z-index:20;background:rgba(233,238,245,.96);backdrop-filter:blur(4px);display:flex;flex-wrap:wrap;gap:6px 8px;justify-content:center;padding:10px 6px;margin:0 -18px 6px;border-bottom:1px solid var(--line);}
+  nav.toc a{text-decoration:none;color:var(--accent);font-size:13px;font-weight:700;background:#fff;border:1px solid var(--line);border-radius:20px;padding:4px 12px;}
+  nav.toc a:hover{background:#eef3fb;}
+  .sec{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px 18px 8px;margin:18px 0;box-shadow:0 1px 4px rgba(0,0,0,.05);scroll-margin-top:60px;}
+  .sec.rail{border-top:6px solid var(--rail);}
+  .sec.hotel{border-top:6px solid var(--accent2);}
+  .sec.days{border-top:6px solid var(--ss);}
+  .sec.tips{border-top:6px solid var(--jn);}
+  .sec.review{border-top:6px solid var(--ss);}
+  .sec.night{border-top:6px solid #4b3a8f;}
+  .st{display:inline-block;font-size:11.5px;font-weight:800;border-radius:12px;padding:1px 8px;white-space:nowrap;}
+  .st.g{background:#e3f0e6;color:#2f6a42;} .st.y{background:#fdf0d8;color:#99620e;}
+  .sec h2{margin:2px 0 6px;font-size:21px;}
+  .sec .lead{color:var(--sub);font-size:13.8px;margin:4px 0 12px;}
+  ul.tips{margin:6px 0 14px;padding-left:20px;}
+  ul.tips li{margin:6px 0;font-size:14px;}
+  .chip{display:inline-block;background:#eef2f7;border:1px solid #d6dfea;border-radius:8px;padding:1px 8px;font-size:12.5px;font-weight:700;margin:0 2px;}
+  .dayb{display:inline-block;font-size:11.5px;font-weight:800;border-radius:14px;padding:2px 10px;margin-left:4px;vertical-align:middle;}
+  .d-mv{background:#e2eef8;color:#163a69;}
+  .d-mg{background:#fbe4e1;color:#a8352c;}
+  .d-jn{background:#f3e9dc;color:#7a4e22;}
+  .d-ss{background:#e3f0e6;color:#2f6a42;}
+  .d-gn{background:#efe6f6;color:#62468a;}
+  .d-hd{background:#fdebd9;color:#a85a14;}
+  .tier{display:inline-block;font-size:11px;font-weight:800;border-radius:12px;padding:0 7px;margin-left:4px;}
+  .t1{background:#e3f0e6;color:#2f6a42;} .t2{background:#fdf0d8;color:#99620e;} .t3{background:#f6e1ea;color:#9a2d5a;}
+  .hotelcard{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0;background:#fff;}
+  .hotelcard .ic{font-size:24px;line-height:1.2;}
+  .hotelcard .nm{font-weight:800;font-size:15.5px;}
+  .hotelcard .meta{color:var(--sub);font-size:13.2px;margin-top:2px;}
+  .hotelcard a{display:inline-block;margin-top:5px;color:var(--accent);font-weight:800;font-size:12.5px;text-decoration:none;}
+  .hotelcard a:hover{text-decoration:underline;}
+  .hotelcard.pick{border:2px solid var(--accent2);}
+  .badge{display:inline-block;font-size:11px;font-weight:800;border-radius:12px;padding:1px 8px;margin-left:6px;background:var(--accent2);color:#fff;vertical-align:middle;}
+  .day{border:1px solid var(--line);border-radius:12px;padding:14px 15px;margin:14px 0;background:#fff;scroll-margin-top:60px;}
+  .day .dh{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:4px;}
+  .day .dn{font-weight:800;font-size:18px;}
+  .day .dd{color:var(--sub);font-size:13.5px;}
+  .day .path{font-size:14px;margin:6px 0 10px;line-height:1.95;}
+  .day .path b{color:var(--accent2);}
+  .day .path .mv{color:var(--ss);}
+  .arr{color:var(--sub);margin:0 3px;}
+  table.tl{width:100%;border-collapse:collapse;margin:4px 0 12px;font-size:13.5px;}
+  table.tl td{border-bottom:1px solid var(--line);padding:7px 6px;vertical-align:top;}
+  table.tl tr:last-child td{border-bottom:none;}
+  table.tl td.t{width:62px;font-weight:800;color:var(--accent);white-space:nowrap;}
+  table.tl td small{color:var(--sub);}
+  .maplink{display:inline-block;margin:0 6px 8px 0;background:var(--rail);color:#fff;text-decoration:none;font-weight:800;font-size:12.5px;border-radius:10px;padding:7px 11px;}
+  .maplink:hover{background:var(--rail2);}
+  .maplink.g{background:#3d7a4f;}
+  .maplink.g:hover{background:#2f6340;}
+  .mapbox{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:6px 0 12px;background:#eee;}
+  .mapbox iframe{display:block;width:100%;height:280px;border:0;}
+  .spotgrid{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 12px;}
+  .spot{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:20px;padding:4px 11px;font-size:13px;text-decoration:none;color:var(--ink);font-weight:600;}
+  .spot:hover{border-color:var(--rail);color:var(--rail2);}
+  .spot .p{margin-right:3px;}
+  .spot.eat{background:#fff6ec;border-color:#efd9bd;}
+  .spot.beauty{background:#fdeef3;border-color:#f3c9d8;}
+  .spot.wear{background:#eef3fb;border-color:#c9d8ee;}
+  .spot.bar{background:#f1edfa;border-color:#d6cdee;}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--sub);margin:2px 0 10px;align-items:center;}
+  .legend span.k{display:inline-block;border-radius:20px;padding:3px 10px;font-weight:700;border:1px solid var(--line);background:#fff;}
+  .warn{background:#fdf0ee;border:1px solid #f0c9c2;border-radius:10px;padding:9px 13px;font-size:13px;color:#9c463b;margin:8px 0 6px;}
+  .good{background:#eef6ee;border:1px solid #cfe4cf;border-radius:10px;padding:9px 13px;font-size:13px;color:#2f5f3a;margin:8px 0 6px;}
+  table.legs{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:13px;}
+  table.legs th,table.legs td{border:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top;}
+  table.legs th{background:#eef2f7;font-weight:800;}
+  table.legs td.leg{font-weight:700;}
+  table.legs td.leg small{display:block;font-weight:600;color:var(--sub);}
+  table.legs th small{display:block;font-weight:600;color:var(--sub);font-size:11px;}
+  .mode{display:inline-block;border-radius:8px;padding:1px 7px;font-size:11.5px;font-weight:800;}
+  .m-arex{background:#e2eef8;color:#163a69;} .m-sub{background:#e3f0e6;color:#2f6a42;} .m-taxi{background:#fbe8d6;color:#b5661f;} .m-walk{background:#f0f0f0;color:#555;} .m-bus{background:#efe6f6;color:#62468a;}
+  table.legs .maplink{white-space:nowrap;margin:0;padding:6px 9px;}
+  @media(max-width:600px){table.legs{font-size:12px;} table.legs th,table.legs td{padding:6px 5px;word-break:break-word;} .mapbox iframe{height:220px;}
+    nav.toc{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none;} nav.toc a{flex:0 0 auto;}}
+  footer{margin-top:22px;color:var(--sub);font-size:12px;text-align:center;}
+  @media print{body{background:#fff;} nav.toc,.mapbox{display:none;} .sec,.day{box-shadow:none;break-inside:avoid;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="00-總目錄.html">← 回總目錄</a>
+  <header class="hero">
+    <div class="kicker">SEOUL · NEW YEAR · ROUTES</div>
+    <h1>首爾跨年 6 天 5 夜｜每日行程與路徑</h1>
+    <div class="dates">2026 / 12 / 27（日）– 2027 / 01 / 01（五）　·　2 人（夫妻）　·　5 晚住明洞 G2 酒店（乙支路3街站旁）</div>
+    <div class="flight">✈️ 12/27 18:45 抵達仁川 ICN ／ 1/1 19:45 從仁川起飛（T1 或 T2 看機票）</div>
+  </header>
+
+  <nav class="toc">
+    <a href="#overview">交通總覽</a>
+    <a href="#review">✅ 順暢度</a>
+    <a href="#hotel">飯店</a>
+    <a href="#night">🌙 晚上</a>
+    <a href="#d1">D1 抵達</a>
+    <a href="#d2">D2 景福宮</a>
+    <a href="#d3">D3 聖水</a>
+    <a href="#d4">D4 狎鷗亭</a>
+    <a href="#d5">D5 弘大＋跨年</a>
+    <a href="#d6">D6 明洞＋回程</a>
+    <a href="#legs">交通表</a>
+  </nav>
+
+  <!-- ===== 交通總覽 ===== -->
+  <div class="sec rail" id="overview">
+    <h2>🧭 交通總覽（先看這個）</h2>
+    <ul class="tips">
+      <li>🏨 <b>5 晚住明洞 G2 酒店</b>（中區水標路 24，見下一節）：走 6–7 分有三個站——<b>乙支路3街站</b>（<span class="chip">2 號線</span>直達聖水、蠶室、弘大；<span class="chip">3 號線</span>直達景福宮、狎鷗亭、新沙）、<b>忠武路站</b>（3、4 號線）、<b>明洞站</b>（<span class="chip">4 號線</span> 2 站到首爾站接機場快線）。走路到明洞商圈 8 分、新世界本店 15 分，跨年走路去明洞廣場。本頁「🚈」按鈕的起點都改成 G2 或乙支路3街站。</li>
+      <li>🚇 <b>2、3 號線都在乙支路3街站</b>：D3 聖水、蠶室搭 2 號線不用轉車；D5 坐到合井轉 6 號線 1 站就是望遠市場；D2 景福宮（3 站）、D4 狎鷗亭（6 站，出站走約 15 分到島山公園）搭 3 號線直達。累了直接搭計程車（約 15–25 分）。</li>
+      <li>💳 <b>交通卡</b>：T-money 或 WOWPASS，進出站都要刷；地鐵單程約 ₩1,550 起。機場和便利商店都能買、加值。</li>
+      <li>🗺️ <b>Google 地圖在韓國只能查大眾運輸，不能走路導航</b>。本頁的「🚈」按鈕查地鐵班次用；走路找店、看營業時間用 <b>Naver Map</b>。</li>
+      <li>🚕 <b>計程車</b>：用 Kakao T 或 Uber 叫車，起跳約 ₩4,800；市區短程大多 ₩6,000–15,000。</li>
+    </ul>
+    <div class="legend">
+      圖例：
+      <span class="k">📍 景點</span>
+      <span class="k" style="background:#fdeef3;border-color:#f3c9d8;">💄 藥妝</span>
+      <span class="k" style="background:#eef3fb;border-color:#c9d8ee;">👕 潮牌／逛街</span>
+      <span class="k" style="background:#f1edfa;border-color:#d6cdee;">🍸 酒吧</span>
+      <span class="k" style="background:#fff6ec;border-color:#efd9bd;">🍽️ 美食</span>
+      <span class="tier t1">平價</span><span class="tier t2">中價</span><span class="tier t3">高階</span>
+    </div>
+  </div>
+
+  <!-- ===== 順暢度檢查 ===== -->
+  <div class="sec review" id="review">
+    <h2>✅ 行程順暢度檢查</h2>
+    <p class="lead">整體很順：每天只跑一區，<b>D2 鐘路（北）→ D3 聖水・蠶室（東）→ D4 江南（東南）→ D5 弘大（西）</b>，沒有同一區跑兩次；住 G2（明洞・乙支路3街）剛好在中間，每天出門單程 15–35 分。下面是逐日檢查，「怎麼改」的部分都已經改進本頁行程。</p>
+    <table class="legs">
+      <tr><th style="width:17%;">哪天</th><th style="width:11%;">結果</th><th>卡點</th><th style="width:38%;">怎麼改（已改）</th></tr>
+      <tr><td class="leg">D1 12/27（日）</td><td><span class="st y">已調整</span></td><td>航班改成 18:45 到，到飯店約 21:00；百貨公司 20:30 就打烊，原本下午的明洞藥妝、新世界、N首爾塔都排不進去。ARA125 入住只到 22:00、Stay Ohana 只到 20:00，班機一延誤就進不去。</td><td>第一天只排 Check-in＋新世界外牆燈光秀（開到 24:00）。新世界逛街移到 D5、明洞藥妝移到 D6、N首爾塔改成 D6 白天的選配。飯店改推薦有 24 小時櫃台、能寄放行李的。</td></tr>
+      <tr><td class="leg">D2 12/28（一）</td><td><span class="st y">最累</span></td><td>走路最多的一天。London Bagel 安國早上常排很久。Bar Cham 平日只有 18:00–19:00 能訂位。</td><td>不穿韓服：不用租、還衣服，早上晚 30 分鐘出門。London Bagel 改成「不用排才吃」。晚上改成：廣藏市場提早吃 → 18:00 Bar Cham → 光化門市集 → 清溪川燈節 → 首爾廣場 → 2 號線 2 站回乙支路3街，一路往南。</td></tr>
+      <tr><td class="leg">D3 12/29（二）</td><td><span class="st g">順</span></td><td>晚上去清潭喝酒，回飯店最遠（計程車 25–30 分）。</td><td>酒吧排在清潭：從蠶室過去只要 15–20 分；Zest、Alice、Le Chamber 在同一條街，走路 2 分。</td></tr>
+      <tr><td class="leg">D4 12/30（三）</td><td><span class="st y">小卡</span></td><td>14:00 醫美前，午餐排 London Bagel 島山會趕；醫美當天不能喝酒，但江南的酒吧都在這一區。前一晚喝到很晚，09:30 的選配會起不來。</td><td>午餐改不用排隊的店；酒吧移到 D3 晚上（沒做醫美才改回今晚，島山公園走路就到）；前一晚有喝酒就跳過奉恩寺、星空圖書館，10:30 出發。</td></tr>
+      <tr><td class="leg">D5 12/31（四）</td><td><span class="st y">已調整</span></td><td>原本 弘大 → 望遠市場（往西約 2 km）→ 延南洞（再往東約 2 km），走回頭路。1/1 百貨公司公休，新世界只能排在 12/31 以前。</td><td>改成 望遠市場午餐 → 弘大 → 延南洞，一路往東，16:00 再到新世界本店逛到傍晚，就在飯店附近。航班改晚上，跨年完不用早起，也不用前一晚打包。<b>跨年改去新世界本店前的明洞廣場</b>：往年有跨年演唱會、外牆媒體秀倒數和煙火，比普信閣只有敲鐘熱鬧，走回 G2 15 分；人太多或封路就照原本行程走去普信閣（17 分）。</td></tr>
+      <tr><td class="leg">D6 1/1（五）</td><td><span class="st g">順</span></td><td>19:45 起飛，下午才要出發；但 1/1 百貨公司公休、有些餐廳休息。</td><td>退房後行李寄在飯店，明洞最後採買（Olive Young、Daiso 有開）＋（選）N首爾塔；15:30 拿行李，首爾站順路逛樂天超市再搭 AREX，17:15 到機場。</td></tr>
+    </table>
+    <div class="good">✅ <b>公休日都避開了</b>：景福宮（週二休）排週一；Bar Cham（週二休）排週一；M+MS（週一休）排週三；德壽宮（週一休）排週四；百貨公司 1/1 公休，新世界排 12/31；樂天超市首爾站店（每月第 2、4 個週日休）排 1/1（大型超市 1/1 照常營業）。</div>
+    <div class="warn">📅 <b>要先訂的</b>：G2（最便宜方案 12/13 前可免費取消）、醫美、Seoul Sky 門票、Bicena／Mingles（想在 N首爾塔吃午餐再訂 N.Grill）。酒吧：<b>Bar Cham</b> 12/28 的位子大約 30 天前的韓國午夜開放（約台灣 11/27 晚上 11 點，以 CatchTable 顯示為準），名額很少；<b>Zest、Alice</b> 用 CatchTable 或電話訂 12/29。跨年：<b>明洞廣場跨年演唱會</b>舞台前的觀眾區要抽籤（去年是 KBS 官網報名、12/18 截止），12 月初留意公告。</div>
+  </div>
+
+  <!-- ===== 飯店 ===== -->
+  <div class="sec hotel" id="hotel">
+    <h2>🏨 住宿：明洞 G2 酒店（11/5 決定）</h2>
+    <div class="good" id="g2">🏨 <b>決定住：明洞 G2 酒店（G2 Hotel Myeongdong）</b>　地址 <b>서울 중구 수표로 24</b>（24, Supyo-ro, Jung-gu），搭計程車直接給司機看這行。<br>
+    24 小時櫃台、可以寄放行李；<b>15:00 後入住、11:00 前退房</b>。訂房備註寫「約 21:00–22:00 抵達；1/1 退房後寄放行李到 15:30」。最便宜方案 5 晚 NT$40,431（11/4 價格），<b>12/13 前可免費取消</b>、12/11 前不用付款。<br>
+    <b>最近的地鐵站</b>：乙支路3街站（2、3 號線）走約 6 分、明洞站（4 號線）約 6 分、忠武路站（3、4 號線）約 7 分。<b>走路</b>：明洞商圈 8 分、新世界本店／明洞廣場 15 分、普信閣 17 分。到首爾站：計程車約 10 分，或明洞站搭 4 號線 2 站。<br>
+    <a href="https://www.google.com/maps/search/?api=1&query=37.5632867,126.9903453" target="_blank" rel="noopener">📍 G2 酒店地圖</a></div>
+    <div class="warn" id="flightfit">✈️ <b>航班改成 12/27 晚上 18:45 到、1/1 晚上 19:45 走，選飯店要多看兩件事</b>：① <b>24 小時櫃台</b>：到飯店大約 21:00，班機延誤可能更晚；② <b>退房後能寄放行李</b>：1/1 11:00 退房，下午 3 點半才去機場。<br>
+    照 Booking 上的住宿規定：<b>Stay Ohana 入住只到 20:00</b>，晚上到不了；<b>ARA125 入住只到 22:00</b>、沒有 24 小時櫃台，Booking 也沒列行李寄存，所以不建議了。日安酒店、G2、N285 都有 24 小時櫃台和行李寄存。</div>
+    <div class="good" id="where">📍 <b>住哪最順？住明洞・乙支路一帶，不建議住聖水。</b><br>
+    聖水只有 D3（聖水）、D4（江南）比較近；D1 晚上拖行李、D2 鐘路、D5 弘大＋新世界＋跨年、D6 帶行李去首爾站都會變遠。最吃虧的是跨年：散場後鐘閣站不停車、人潮擠，搭車回聖水至少 1 小時；住明洞走路 10–15 分就到。粗估 6 天的通勤時間，住明洞約 4.5 小時，住聖水約 7 小時以上。<br>
+    另外，聖水這幾天在 Booking 上幾乎只剩<b>整間出租的公寓</b>（自助入住，通常沒有櫃台幫忙寄放行李）；唯一的正規飯店 Hotel POCO 聖水（8.1 分）5 晚 NT$36,252，每晚約 NT$7,250。想多感受聖水，D3 整天都在那裡就夠了。</div>
+    <table class="legs">
+      <tr><th style="width:27%;">飯店<small>晚上入住・寄放行李</small></th><th>地鐵（走路）</th><th style="width:12%;">明洞商圈</th><th style="width:12%;">新世界本店</th><th style="width:11%;">普信閣</th></tr>
+      <tr><td class="leg">日安酒店<small>✅ 24 小時櫃台・可寄放</small></td><td>2 號線 乙支路3街 6 分<br>3 號線 鐘路3街 4 分</td><td>14 分</td><td>22 分</td><td>11 分</td></tr>
+      <tr><td class="leg">G2 酒店<small>✅ 24 小時櫃台・可寄放</small></td><td>2、3 號線 乙支路3街 6 分<br>3、4 號線 忠武路 7 分</td><td>8 分</td><td>15 分</td><td>17 分</td></tr>
+      <tr><td class="leg">N285Hotel<small>✅ 24 小時櫃台・可寄放</small></td><td>2 號線 乙支路3街 14 分<br>1、3、5 號線 鐘路3街 7 分</td><td>17 分</td><td>24 分</td><td>7 分</td></tr>
+      <tr><td class="leg">ARA125<small>⚠️ 入住只到 22:00</small></td><td>2 號線 乙支路入口 4 分<br>3 號線 乙支路3街 12 分</td><td>2 分</td><td>9 分</td><td>10 分</td></tr>
+      <tr><td class="leg">Stay Ohana<small>❌ 入住只到 20:00</small></td><td>2 號線 乙支路入口 8 分<br>3 號線 鐘路3街 11 分</td><td>11 分</td><td>18 分</td><td>2 分</td></tr>
+    </table>
+    <p class="lead">步行分鐘是用地圖直線距離估的，實際可能多幾分鐘；三間到首爾站都是計程車約 10 分（2.0–2.5 km）。<b>已決定住 G2</b>（房間最大、到明洞商圈 8 分）；日安、N285 留作備案（G2 沒訂到或想省錢時再看）。</p>
+    <p class="lead">價格是 Booking.com 上 <b>12/27–1/1 共 5 晚、2 位成人、一間房</b>的總價（含稅），2026-11-04 晚上查的，會隨時變動。每間都挑「雙人床＋房內衛浴、可以免費取消」的房型，到期前大多不用付款，<b>建議現在先訂</b>。訂房時在備註寫「約 21:00–22:00 抵達，1/1 退房後想寄放行李到 15:30」。</p>
+
+    <div class="hotelcard pick">
+      <div class="ic">🛏️</div>
+      <div>
+        <div class="nm">明洞 G2 酒店 G2 Hotel Myeongdong（乙支路3街・忠武路之間）<span class="tier t3">每晚約 NT$8,086</span><span class="badge">✅ 已決定</span></div>
+        <div class="meta">5 晚 NT$40,431，<b>25 m²</b>（標準雙人房）；<b>12/13 前</b>可免費取消、12/11 前不用付款（可以到 12/20 前取消的方案要 NT$58,680）。評分 8.5（1,057 則評語），地點分數 9.1。<b>24 小時櫃台、可以寄放行李</b>，15:00 後入住。<br>
+        <b>同價位的明洞飯店裡房間最大</b>（王子酒店 15 m² 要 NT$40,907、Gracery 22 m² 要 NT$46,605）。決定住這間的話，多 NT$1,393 可以換「豪華雙人房」27 m²、加大雙人床，比較划算。<br>
+        2、3 號線乙支路3街站走 6 分，3、4 號線忠武路站 7 分，明洞商圈 8 分；新世界本店走約 15 分，普信閣約 17 分。<br>
+        缺點：每晚比預算多約 6 成；跟日安酒店比，房間只大 2 m²，5 晚卻貴 NT$11,448。</div>
+        <a href="https://www.booking.com/hotel/kr/g2-myeongdong.zh-tw.html?checkin=2026-12-27&checkout=2027-01-01&group_adults=2&no_rooms=1&selected_currency=TWD" target="_blank" rel="noopener">🔗 Booking（已帶日期）</a>　<a href="https://www.google.com/maps/search/?api=1&query=37.5632867170591,126.990345318385" target="_blank" rel="noopener">📍 地圖</a>
+      </div>
+    </div>
+    <div class="hotelcard">
+      <div class="ic">🛏️</div>
+      <div>
+        <div class="nm">日安酒店 Rian Hotel（鐘路・清溪川旁）<span class="tier t2">每晚約 NT$5,797</span><span class="badge">備案</span></div>
+        <div class="meta">5 晚 NT$28,983，<b>23 m²、加大雙人床</b>；12/24 前可免費取消、12/22 前不用付款。三星級，評分 8.5（579 則評語）。<b>24 小時櫃台、可以寄放行李</b>，14:00 後入住。<br>
+        2、3 號線乙支路3街站走 6 分，鐘路3街站 4 分，走到普信閣約 11 分；新世界本店比較遠（走約 22 分，計程車約 10 分）。房間跟 G2 差不多大，<b>5 晚便宜 NT$11,448</b>，取消期限也晚 11 天。</div>
+        <a href="https://www.booking.com/hotel/kr/rian.zh-tw.html?checkin=2026-12-27&checkout=2027-01-01&group_adults=2&no_rooms=1&selected_currency=TWD" target="_blank" rel="noopener">🔗 Booking（已帶日期）</a>　<a href="https://www.google.com/maps/search/?api=1&query=37.56917456212092,126.99098020792007" target="_blank" rel="noopener">📍 地圖</a>
+      </div>
+    </div>
+    <div class="hotelcard">
+      <div class="ic">🛏️</div>
+      <div>
+        <div class="nm">N285Hotel（鐘路3街・益善洞旁）<span class="tier t2">每晚約 NT$5,411</span><span class="badge">最便宜</span></div>
+        <div class="meta">5 晚 NT$27,054（12/13 前可免費取消）；想晚一點決定，選 NT$27,792 的方案（12/20 前可免費取消）。<b>18 m²</b>、雙人床，評分 8.6（1,032 則評語）。<b>24 小時櫃台、可以寄放行李</b>，15:00 後入住。<br>
+        1、3、5 號線鐘路3街站走 7 分，2 號線乙支路3街站 14 分；<b>走到普信閣約 7 分</b>，明洞商圈約 17 分。房間比日安小 5 m²，5 晚便宜約 NT$1,900。飯店公告 2027/1/4 起分樓層整修，你們 1/1 就退房，不受影響。</div>
+        <a href="https://www.booking.com/hotel/kr/n285.zh-tw.html?checkin=2026-12-27&checkout=2027-01-01&group_adults=2&no_rooms=1&selected_currency=TWD" target="_blank" rel="noopener">🔗 Booking（已帶日期）</a>　<a href="https://www.google.com/maps/search/?api=1&query=37.572492439303,126.987291553352" target="_blank" rel="noopener">📍 地圖</a>
+      </div>
+    </div>
+    <div class="warn">⚠️ <b>航班改了以後不建議</b>：<b>ARA125</b>（明洞，5 晚 NT$20,441 含早餐，原本最推薦）入住只到 22:00、沒有 24 小時櫃台，班機延誤就可能進不去，1/1 退房後也沒地方放行李；真的想住，先寫信問飯店能不能晚到、寄放行李再訂。<b>Stay Ohana</b>（鐘閣，5 晚 NT$22,406）入住只到 20:00。</div>
+    <div class="warn">⚠️ <b>超出預算、這次不推薦</b>（同樣 5 晚、雙人床、可免費取消的實查價）：<br>
+    11/4 查：Hotel Marguerite 房間只有 15 m²，卻要 NT$34,870（比前一天貴了約 NT$5,000）；新羅舒泰西大門之前的合作商低價已經沒了，現在 NT$35,942；明洞王子酒店 15 m² NT$40,907、Gracery 22 m²（附浴缸）NT$46,605、Stanford 明洞 20 m² NT$50,813、Crown Park 明洞 19 m² NT$65,891。<br>
+    11/3 查：Shilla Stay 光化門 NT$40,625、Moxy 仁寺洞約 NT$44,225、樂天城市飯店明洞 NT$49,405、L7 明洞 NT$54,946、Solaria 明洞 NT$64,395；宜必思大使明洞已經沒房。<br>
+    訂之前也可以比價 Agoda、Trip.com、飯店官網；確認<b>晚上 9–10 點入住</b>、<b>1/1 退房後寄放行李到下午</b>都沒問題。</div>
+  </div>
+
+  <!-- ===== 晚上 ===== -->
+  <div class="sec night" id="night">
+    <h2>🌙 晚上怎麼排（含亞洲 50 大酒吧）</h2>
+    <p class="lead">2026 年亞洲 50 大酒吧（Asia's 50 Best Bars），首爾有 8 間上榜：<b>Zest 第 2 名</b>（也是 2026 世界 50 大酒吧第 7 名）、<b>Alice 第 13</b>、<b>Bar Cham 第 33</b>、<b>M+MS 第 42</b>；51–100 名還有 Space、Charles H.、Le Chamber、Soko。下面挑順路的排進晚上，每間的營業時間、訂位方式在 <a href="2-藥妝潮牌美食地圖.html#bar">🍸 酒吧清單</a>。</p>
+    <table class="legs">
+      <tr><th style="width:15%;">晚上</th><th>安排</th><th style="width:34%;">🍸 酒吧</th><th style="width:15%;">回飯店</th></tr>
+      <tr><td class="leg">D1（日）</td><td>G2 Check-in → 走約 15 分去看新世界本店外牆燈光秀（開到 24:00）</td><td>不排（晚上 9 點才到飯店）</td><td>走路約 15 分</td></tr>
+      <tr><td class="leg">D2（一）</td><td>廣藏市場提早吃 → 西村 → 光化門市集 → 清溪川燈節 → 首爾廣場</td><td><b>Bar Cham</b> 18:00（西村韓屋，用韓國傳統酒調酒）；沒訂到就 21:00 後現場排，或改 <b>Charles H.</b>（四季酒店）</td><td>2 號線 2 站，或走約 20 分</td></tr>
+      <tr><td class="leg">D3（二）</td><td>Seoul Sky 夜景 → 晚餐 → 計程車 15–20 分到清潭</td><td><b>Zest</b> 19:30 ＋ <b>Alice</b> 21:00（同一條街）；還想喝或沒位子：<b>Le Chamber</b>（開到 03:00）</td><td>計程車 25–30 分</td></tr>
+      <tr><td class="leg">D4（三）</td><td>醫美當天，吃完晚餐就回飯店休息</td><td>不喝酒。<b>沒做醫美</b>：今晚改去 <b>M+MS</b>（島山公園旁）或清潭那條街，D3 晚上就照原本逛樂天世界購物中心</td><td>計程車 25–30 分</td></tr>
+      <tr><td class="leg">D5（四）跨年</td><td>新世界本店逛到傍晚 → 晚餐 → <b>明洞廣場跨年演唱會</b>（新世界本店前，往年 23:00–01:00，00:00 倒數放煙火）</td><td>（選）<b>Charles H.</b> 20:00 喝一杯，22:00 走約 25 分到明洞廣場；12/31 常有跨年活動，要先訂、問清楚</td><td>走路約 15 分</td></tr>
+    </table>
+    <div class="warn">🍸 一杯約 ₩23,000–30,000，大多另收入場費每人約 ₩10,000，不用給小費；要滿 19 歲，<b>帶護照</b>備查。清潭回明洞搭計程車約 ₩15,000–22,000（22:00–04:00 有深夜加成）。做醫美的話照診所指示，通常當天到隔天都不要喝酒。</div>
+  </div>
+
+  <!-- ===== 每日路線 ===== -->
+  <div class="sec days">
+    <h2>🗓️ 每日行程・路徑・定位</h2>
+    <p class="lead">每天一區，不走回頭路。時間是建議，冷或累就刪掉「（選）」的項目。「🚈」按鈕會開 Google 地圖的即時地鐵路線，「📍」開店家位置。</p>
+
+    <!-- Day 1 -->
+    <div class="day" id="d1">
+      <div class="dh"><span class="dn">Day 1</span><span class="dd">12/27（日）晚上抵達｜Check-in・新世界燈光秀</span><span class="dayb d-mv">移動日</span><span class="dayb d-mg">明洞</span></div>
+      <div class="path"><b>仁川機場</b> 18:45<span class="arr">→</span><span class="mv">AREX 直達車 43 分</span><span class="arr">→</span><b>首爾站</b><span class="arr">→</span><span class="mv">計程車約 10 分（或 4 號線 2 站到明洞站＋走 6 分）</span><span class="arr">→</span><b>G2</b> Check-in<span class="arr">→</span><span class="mv">走約 15 分</span><span class="arr">→</span><b>新世界本店</b>外牆燈光秀<span class="arr">→</span>宵夜<span class="arr">→</span>回 G2</div>
+      <table class="tl">
+        <tr><td class="t">18:45</td><td>抵達仁川 → 入境、領行李（約 1 小時，星期日晚上入境的人多）。順便在機場買 T-money／WOWPASS、領 eSIM。</td></tr>
+        <tr><td class="t">19:45</td><td><b>AREX 直達車</b>到首爾站（T1 43 分、T2 51 分，約每 30–40 分一班；機場出發的末班約 22:48）→ 計程車約 10 分到 G2（或 4 號線 2 站到明洞站，走約 6 分）。<small>不想在首爾站轉車：搭 <b>6015 機場巴士</b>到明洞站一帶，再走約 10 分到 G2（約 70–90 分，₩17,000；機場出發末班 T1 約 21:50、T2 約 21:30，T2 上車要先買票）。</small></td></tr>
+        <tr><td class="t">21:00</td><td><b>G2 酒店</b> Check-in（24 小時櫃台）。<b>訂房時在備註寫「約 21:00–22:00 抵達」</b>。<small>搭計程車給司機看地址：서울 중구 수표로 24。</small></td></tr>
+        <tr><td class="t">21:30</td><td>從 G2 走約 15 分到<b>新世界百貨本店</b>看外牆聖誕燈光秀（今年 11/6 起，每天 17:00–24:00，免費），最好的位置是對面的<b>中央郵局</b>前。<small>百貨公司這時已經打烊，逛街排在 D5（12/31）下午。</small></td></tr>
+        <tr><td class="t">22:00</td><td>宵夜：便利商店，或用 Naver Map 搜「24시」找附近 24 小時營業的店。<small>（選）還有精神：<b>Olive Young 明洞 Town</b> 開到 22:30，可以先逛一圈，D6 還會再來。</small></td></tr>
+        <tr><td class="t">23:00</td><td>回 G2 睡覺。</td></tr>
+      </table>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Incheon+International+Airport+Terminal+1&destination=Seoul+Station&travelmode=transit" target="_blank" rel="noopener">🚈 仁川 T1 → 首爾站</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Incheon+International+Airport+Terminal+2&destination=Seoul+Station&travelmode=transit" target="_blank" rel="noopener">🚈 仁川 T2 → 首爾站</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Seoul+Station&destination=37.5632867,126.9903453&travelmode=transit" target="_blank" rel="noopener">🚈 首爾站 → G2 酒店</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=37.5632867,126.9903453&destination=Shinsegae+Department+Store+Main+Store+Seoul&travelmode=transit" target="_blank" rel="noopener">🚈 G2 → 新世界本店</a>
+      <div class="mapbox"><iframe loading="lazy" src="https://maps.google.com/maps?q=Myeongdong%20Seoul&z=15&output=embed" title="明洞地圖"></iframe></div>
+      <div class="spotgrid">
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Shinsegae+Department+Store+Main+Store+Seoul" target="_blank" rel="noopener"><span class="p">📍</span>新世界本店（外牆燈光秀）</a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=37.5632867,126.9903453" target="_blank" rel="noopener"><span class="p">🏨</span>G2 酒店（水標路 24）</a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Seoul+Central+Post+Office" target="_blank" rel="noopener"><span class="p">📍</span>中央郵局前（看燈光秀的位置）</a>
+        <a class="spot beauty" href="https://www.google.com/maps/search/?api=1&query=올리브영+명동타운" target="_blank" rel="noopener"><span class="p">💄</span>（選）Olive Young 明洞 Town</a>
+      </div>
+      <div class="warn">✈️ 晚上才到，第一天只排 Check-in 和燈光秀。班機延誤也沒關係：燈光秀開到 24:00；AREX 直達車末班（約 22:48）之後，普通車開到接近午夜（約 60 分到首爾站），再晚就搭計程車（約 1 小時，晚上有深夜加成）。</div>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="day" id="d2">
+      <div class="dh"><span class="dn">Day 2</span><span class="dd">12/28（一）景福宮・北村・益善洞・廣藏市場</span><span class="dayb d-jn">鐘路</span></div>
+      <div class="path">G2<span class="arr">→</span><span class="mv">乙支路3街站 3 號線 3 站，約 20 分</span><span class="arr">→</span>光化門 10:00 守門將換崗<span class="arr">→</span><b>景福宮</b><span class="arr">→</span>土俗村午餐<span class="arr">→</span><span class="mv">3 號線 1 站</span><span class="arr">→</span><b>北村韓屋村</b><span class="arr">→</span>三清洞<span class="arr">→</span>步行 10 分<span class="arr">→</span><b>益善洞</b><span class="arr">→</span><span class="mv">1 號線 1 站</span><span class="arr">→</span><b>廣藏市場</b>提早吃晚餐<span class="arr">→</span><span class="mv">計程車 15–20 分</span><span class="arr">→</span>🍸 <b>Bar Cham</b>（西村）<span class="arr">→</span><span class="mv">走 15 分</span><span class="arr">→</span>光化門市集<span class="arr">→</span><b>清溪川燈節</b><span class="arr">→</span>首爾廣場<span class="arr">→</span><span class="mv">2 號線 2 站</span>回 G2</div>
+      <table class="tl">
+        <tr><td class="t">09:00</td><td>（選）早餐：<b>London Bagel Museum 安國店</b>（排隊名店）或 <b>Cafe Onion 安國</b>（韓屋咖啡），乙支路3街站搭 3 號線 2 站就到；飯店有含早餐就在飯店吃完再出門。<small>不用租韓服，可以比原本晚 30 分鐘出門。London Bagel 要排超過 30 分鐘就改去 Onion，不然會趕不上 10:00 的守門將換崗。</small></td></tr>
+        <tr><td class="t">10:00</td><td>光化門前看<b>守門將換崗</b>（10:00、14:00，約 20 分，免費；從安國走過來約 15 分）→ 買票進<b>景福宮</b>（每人 ₩3,000；冬季 09:00–17:00，16:00 前入場，週二休館）：勤政殿 → 慶會樓 → 香遠亭。<small>太冷就到宮內東側的<b>國立民俗博物館</b>（免費、有暖氣）逛一下。</small></td></tr>
+        <tr><td class="t">12:15</td><td>午餐：<b>土俗村蔘雞湯</b><span class="tier t1">平價</span><small>（會排隊，但翻桌快）</small></td></tr>
+        <tr><td class="t">13:30</td><td>景福宮站搭 3 號線 1 站到安國站 → <b>北村韓屋村</b> → 三清洞散步（<b>Aesop 三清店</b>在三清路上）。</td></tr>
+        <tr><td class="t">15:30</td><td><b>益善洞</b>韓屋小巷：咖啡、選物店、拍照。</td></tr>
+        <tr><td class="t">16:45</td><td>晚餐（提早吃）：<b>廣藏市場</b>，吃綠豆煎餅、生拌牛肉、麻藥飯捲 <span class="tier t1">平價</span>。<small>想坐下來吃熱的：陳玉華奶奶一隻雞（東大門）<span class="tier t2">中價</span></small></td></tr>
+        <tr><td class="t">17:40</td><td>計程車到西村（約 15–20 分、₩8,000 左右，下班時間會塞）。</td></tr>
+        <tr><td class="t">18:00</td><td>🍸 <b>Bar Cham</b>（亞洲 50 大酒吧第 33 名）：西村的韓屋，用韓國各地的傳統酒、燒酒調酒，最有韓國味。平日只有 18:00–19:00 能用 CatchTable 訂。<small>沒訂到：照原本 17:30 吃廣藏市場、19:00 逛燈節，21:00 後再去 Bar Cham 現場排；或改 <b>Charles H.</b>（四季酒店 B1，就在光化門旁，每天 17:00–01:30，可以訂）。</small></td></tr>
+        <tr><td class="t">19:30</td><td>走路約 15 分到<b>光化門市集</b>（首爾冬季慶典）→ 南邊的清溪廣場看<b>清溪川燈節</b> → 再走約 5 分到<b>首爾廣場</b>（溜冰場、聖誕樹）→ 市廳站搭 2 號線 2 站回乙支路3街（或走約 20 分回 G2）。</td></tr>
+      </table>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Euljiro+3-ga+Station&destination=Gyeongbokgung+Palace&travelmode=transit" target="_blank" rel="noopener">🚈 乙支路3街 → 景福宮（3 號線）</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=City+Hall+Station+Seoul&destination=Euljiro+3-ga+Station&travelmode=transit" target="_blank" rel="noopener">🚈 晚上 市廳 → 乙支路3街（回 G2）</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Gyeongbokgung+Station&destination=Bukchon+Hanok+Village&travelmode=transit" target="_blank" rel="noopener">🚈 景福宮 → 北村</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Jongno+3-ga+Station&destination=Gwangjang+Market&travelmode=transit" target="_blank" rel="noopener">🚈 益善洞 → 廣藏市場</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Gwangjang+Market&destination=Gyeongbokgung+Station&travelmode=transit" target="_blank" rel="noopener">🚈 廣藏市場 → 西村（Bar Cham）</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Gyeongbokgung+Station&destination=Gwanghwamun+Square&travelmode=transit" target="_blank" rel="noopener">🚈 西村 → 光化門廣場</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Jongno+5-ga+Station&destination=Cheonggye+Plaza&travelmode=transit" target="_blank" rel="noopener">🚈 （沒訂到 Bar Cham）廣藏市場 → 清溪川</a>
+      <div class="mapbox"><iframe loading="lazy" src="https://maps.google.com/maps?q=Bukchon%20Hanok%20Village&z=14&output=embed" title="景福宮北村地圖"></iframe></div>
+      <div class="spotgrid">
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Gyeongbokgung+Palace" target="_blank" rel="noopener"><span class="p">📍</span>景福宮</a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=National+Folk+Museum+of+Korea" target="_blank" rel="noopener"><span class="p">📍</span>（選）國立民俗博物館</a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Bukchon+Hanok+Village" target="_blank" rel="noopener"><span class="p">📍</span>北村韓屋村</a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Samcheong-dong+Seoul" target="_blank" rel="noopener"><span class="p">📍</span>三清洞</a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=익선동+한옥거리" target="_blank" rel="noopener"><span class="p">📍</span>益善洞</a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=런던베이글뮤지엄+안국점" target="_blank" rel="noopener"><span class="p">☕</span>London Bagel Museum 安國</a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=어니언+안국" target="_blank" rel="noopener"><span class="p">☕</span>Cafe Onion 安國</a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=토속촌+삼계탕" target="_blank" rel="noopener"><span class="p">🍽️</span>土俗村蔘雞湯<span class="tier t1">平價</span></a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=Gwangjang+Market" target="_blank" rel="noopener"><span class="p">🍽️</span>廣藏市場<span class="tier t1">平價</span></a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=순희네+빈대떡" target="_blank" rel="noopener"><span class="p">🍽️</span>順熙家 綠豆煎餅</a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=부촌육회" target="_blank" rel="noopener"><span class="p">🍽️</span>富村 生拌牛肉</a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=진옥화할매원조닭한마리" target="_blank" rel="noopener"><span class="p">🍽️</span>陳玉華一隻雞<span class="tier t2">中價</span></a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Cheonggye+Plaza" target="_blank" rel="noopener"><span class="p">📍</span>清溪廣場（燈節）</a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Gwanghwamun+Square" target="_blank" rel="noopener"><span class="p">📍</span>光化門廣場（市集）</a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Seoul+Plaza" target="_blank" rel="noopener"><span class="p">📍</span>首爾廣場（溜冰場、聖誕樹）</a>
+        <a class="spot beauty" href="https://www.google.com/maps/search/?api=1&query=이솝+삼청" target="_blank" rel="noopener"><span class="p">💄</span>Aesop 三清店</a>
+        <a class="spot bar" href="https://www.google.com/maps/search/?api=1&query=Bar+Cham+34+Jahamun-ro+7-gil+Jongno-gu+Seoul" target="_blank" rel="noopener"><span class="p">🍸</span>Bar Cham（亞洲 #33）</a>
+        <a class="spot bar" href="https://www.google.com/maps/search/?api=1&query=Charles+H.+Four+Seasons+Hotel+Seoul" target="_blank" rel="noopener"><span class="p">🍸</span>Charles H.（備案）</a>
+      </div>
+      <div class="warn">⚠️ 景福宮<b>星期二休館</b>，所以排在星期一；Bar Cham 也是<b>星期二公休</b>。北村熱門的紅色區域只在 <b>10:00–17:00</b> 開放給觀光客，其他時間進去會被罰款。景福宮幾乎都在戶外，冬天風很大，逛 1.5–2 小時就好。</div>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="day" id="d3">
+      <div class="dh"><span class="dn">Day 3</span><span class="dd">12/29（二）聖水洞（潮牌、Hetras 香氛）・蠶室</span><span class="dayb d-ss">聖水／蠶室</span></div>
+      <div class="path">G2<span class="arr">→</span><span class="mv">乙支路3街站 2 號線約 16 分</span><span class="arr">→</span><b>聖水站</b><span class="arr">→</span>咖啡<span class="arr">→</span><b>連武場街潮牌</b><span class="arr">→</span>午餐<span class="arr">→</span><b>Olive Young N 聖水</b><span class="arr">→</span><b>Hetras 聖水</b>香氛旗艦<span class="arr">→</span>Amore 聖水（或首爾林）<span class="arr">→</span><span class="mv">2 號線約 12 分</span><span class="arr">→</span><b>蠶室</b>：Seoul Sky 夕陽夜景<span class="arr">→</span>晚餐<span class="arr">→</span><span class="mv">計程車 15–20 分</span><span class="arr">→</span>🍸 <b>清潭</b>：Zest＋Alice<span class="arr">→</span><span class="mv">計程車 25–30 分</span>回 G2</div>
+      <table class="tl">
+        <tr><td class="t">10:30</td><td>從 G2 出發（走 6 分到乙支路3街站）。<small>聖水的店大多 11:00–12:00 才開，太早到會撲空。</small></td></tr>
+        <tr><td class="t">11:00</td><td>先喝咖啡：<b>Onion 聖水</b>（老工廠改建）。</td></tr>
+        <tr><td class="t">11:30</td><td>潮牌（連武場街一帶，走路逛得完）：<b>Musinsa Store 聖水@大林倉庫</b>（100 多個韓國品牌的選物店，先逛這間最有效率）→ <b>Matin Kim、Mardi Mercredi</b>（2026/9 新開的 4 層旗艦）、<b>Musinsa Standard、Marithé François Girbaud、thisisneverthat、ADER ERROR、EMPTY</b>、Point of View（文具選物）。想看 <b>Supreme 聖水</b>（2026/9 開）也在附近；<b>Aesop 聖水店</b>也在連武場街上。</td></tr>
+        <tr><td class="t">13:00</td><td>午餐：<b>聖水足發</b>（豬腳）<span class="tier t1">平價～中價</span>，或邊逛邊吃。</td></tr>
+        <tr><td class="t">14:00</td><td>藥妝：<b>Olive Young N 聖水</b>（全韓最大，聖水站 4 號出口走 2 分）。</td></tr>
+        <tr><td class="t">14:45</td><td>香氛：<b>Hetras 聖水旗艦</b>（헤트라스 성수，연무장길 68；聖水站 3 號出口走約 5 分，從 Olive Young 走過去也約 5 分）。韓國擴香、香水品牌，整棟 4 層：1–2 樓試香、買東西，3 樓體驗區，B1 結帳取貨；每天 11:00–22:00。<b>DIY 心形固體香水鑰匙圈只有聖水店有</b>：同一筆結帳滿 ₩70,000（用退稅後的金額算，買到 ₩80,000 左右比較保險）就能免費做，約 10–20 分，不用預約。<small>活動是 2026 年初的資料，以現場公告為準。擴香液是酒精基底（易燃），隨身、託運都可能被擋，想帶回台灣先問店員；香水可以放託運（每瓶 500ml 以下、總共 2L 以下）。結帳帶護照可以直接退稅。</small></td></tr>
+        <tr><td class="t">15:30</td><td><b>Amore 聖水</b>（雪花秀、蘭芝、Hera 等品牌可以慢慢試）：在聖水站另一側，從 Hetras 走約 10 分。<small>今天加了 Hetras，時間比較緊：想去<b>首爾林</b>散步就跳過 Amore；冷或累就直接去蠶室。</small></td></tr>
+        <tr><td class="t">16:30</td><td>2 號線到蠶室 → <b>Seoul Sky</b>（樂天世界塔 117–123 樓展望台）看夕陽轉夜景（日落約 17:20）。</td></tr>
+        <tr><td class="t">18:00</td><td>晚餐：樂天世界購物中心餐廳 <span class="tier t2">中價</span>／<b>Bicena</b>（樂天世界塔 81 樓韓式套餐）<span class="tier t3">高階・要訂</span><small>　套餐吃比較久，選 Bicena 的話 Zest 改訂 20:00。</small></td></tr>
+        <tr><td class="t">19:15</td><td>計程車到清潭（約 15–20 分、₩10,000 左右）。</td></tr>
+        <tr><td class="t">19:30</td><td>🍸 <b>Zest</b>（亞洲 50 大酒吧第 2 名、2026 世界 50 大第 7 名）：零浪費，蘇打和烈酒都自己做，用韓國當季食材。CatchTable 最晚訂到 20:00，之後要現場候位。</td></tr>
+        <tr><td class="t">21:00</td><td>🍸 <b>Alice</b>（亞洲第 13 名）：同一條街走 2 分，從花店的暗門進去，愛麗絲夢遊仙境主題。週日到週四可訂 18:00–21:00 入場，入場費 ₩10,000。<small>還想喝：同一條街的 <b>Le Chamber</b>（51–100 名，開到 03:00）。</small></td></tr>
+        <tr><td class="t">22:30</td><td>計程車回 G2（約 25–30 分、₩15,000–22,000，有深夜加成）。<small>不去酒吧：20:00 逛樂天世界購物中心 →（選）石村湖散步 → 2 號線回乙支路3街（約 30 分）。</small></td></tr>
+      </table>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Euljiro+3-ga+Station&destination=Seongsu+Station&travelmode=transit" target="_blank" rel="noopener">🚈 乙支路3街 → 聖水</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Seongsu+Station&destination=Seoul+Forest&travelmode=transit" target="_blank" rel="noopener">🚈 聖水 → 首爾林</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Seongsu+Station&destination=Jamsil+Station&travelmode=transit" target="_blank" rel="noopener">🚈 聖水 → 蠶室</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Jamsil+Station&destination=26+Dosan-daero+55-gil+Gangnam-gu+Seoul&travelmode=transit" target="_blank" rel="noopener">🚈 蠶室 → 清潭（Zest）</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=26+Dosan-daero+55-gil+Gangnam-gu+Seoul&destination=Myeongdong+Station&travelmode=transit" target="_blank" rel="noopener">🚈 清潭 → 明洞（深夜建議計程車）</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Jamsil+Station&destination=Euljiro+3-ga+Station&travelmode=transit" target="_blank" rel="noopener">🚈 （不去酒吧）蠶室 → 乙支路3街</a>
+      <div class="mapbox"><iframe loading="lazy" src="https://maps.google.com/maps?q=Seongsu%20Station%20Seoul&z=15&output=embed" title="聖水地圖"></iframe></div>
+      <div class="spotgrid">
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=무신사+스토어+성수+대림창고" target="_blank" rel="noopener"><span class="p">👕</span>Musinsa Store 大林倉庫</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=마르디+메크르디+성수" target="_blank" rel="noopener"><span class="p">👕</span>Mardi Mercredi 聖水</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=슈프림+성수" target="_blank" rel="noopener"><span class="p">👕</span>Supreme 聖水</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=마뗑킴+성수" target="_blank" rel="noopener"><span class="p">👕</span>Matin Kim 聖水</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=무신사+스탠다드+성수" target="_blank" rel="noopener"><span class="p">👕</span>Musinsa Standard 聖水</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=마리떼+프랑소와+저버+성수" target="_blank" rel="noopener"><span class="p">👕</span>Marithé 聖水</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=디스이즈네버댓+성수" target="_blank" rel="noopener"><span class="p">👕</span>thisisneverthat 聖水</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=아더에러+성수" target="_blank" rel="noopener"><span class="p">👕</span>ADER ERROR 聖水</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=엠프티+성수" target="_blank" rel="noopener"><span class="p">👕</span>EMPTY 聖水</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=포인트오브뷰+성수" target="_blank" rel="noopener"><span class="p">👕</span>Point of View</a>
+        <a class="spot beauty" href="https://www.google.com/maps/search/?api=1&query=올리브영+N+성수" target="_blank" rel="noopener"><span class="p">💄</span>Olive Young N 聖水</a>
+        <a class="spot beauty" href="https://www.google.com/maps/search/?api=1&query=아모레+성수" target="_blank" rel="noopener"><span class="p">💄</span>Amore 聖水</a>
+        <a class="spot beauty" href="https://www.google.com/maps/search/?api=1&query=이솝+성수" target="_blank" rel="noopener"><span class="p">💄</span>Aesop 聖水店</a>
+        <a class="spot beauty" href="https://www.google.com/maps/search/?api=1&query=헤트라스+성수" target="_blank" rel="noopener"><span class="p">💄</span>Hetras 聖水旗艦（香氛・DIY）</a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=어니언+성수" target="_blank" rel="noopener"><span class="p">☕</span>Onion 聖水</a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=성수족발" target="_blank" rel="noopener"><span class="p">🍽️</span>聖水足發<span class="tier t1">平價</span></a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Seoul+Forest" target="_blank" rel="noopener"><span class="p">📍</span>首爾林</a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Seoul+Sky+Lotte+World+Tower" target="_blank" rel="noopener"><span class="p">📍</span>Seoul Sky 展望台</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=Lotte+World+Mall" target="_blank" rel="noopener"><span class="p">👕</span>樂天世界購物中心</a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=비채나+롯데월드타워" target="_blank" rel="noopener"><span class="p">🍽️</span>Bicena<span class="tier t3">高階</span></a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Seokchon+Lake" target="_blank" rel="noopener"><span class="p">📍</span>石村湖</a>
+        <a class="spot bar" href="https://www.google.com/maps/search/?api=1&query=Zest+26+Dosan-daero+55-gil+Gangnam-gu+Seoul" target="_blank" rel="noopener"><span class="p">🍸</span>Zest（亞洲 #2）</a>
+        <a class="spot bar" href="https://www.google.com/maps/search/?api=1&query=Alice+Cheongdam+47+Dosan-daero+55-gil+Seoul" target="_blank" rel="noopener"><span class="p">🍸</span>Alice（亞洲 #13）</a>
+        <a class="spot bar" href="https://www.google.com/maps/search/?api=1&query=Le+Chamber+42+Dosan-daero+55-gil+Seoul" target="_blank" rel="noopener"><span class="p">🍸</span>Le Chamber（備案）</a>
+      </div>
+      <div class="warn">💡 聖水的快閃店（pop-up）每週都不一樣，出發前在 IG 搜 <b>#성수팝업</b> 看那週有什麼。Seoul Sky 日落時段最熱門，建議先上網買票。</div>
+    </div>
+
+    <!-- Day 4 -->
+    <div class="day" id="d4">
+      <div class="dh"><span class="dn">Day 4</span><span class="dd">12/30（三）狎鷗亭・島山公園・新沙洞＋醫美</span><span class="dayb d-gn">江南</span></div>
+      <div class="path">G2<span class="arr">→</span>（選）<span class="mv">乙支路3街站 2 號線直達三成約 35 分</span>：<b>奉恩寺</b>＋<b>COEX 星空圖書館</b><span class="arr">→</span><span class="mv">約 15–20 分</span><span class="arr">→</span><b>狎鷗亭羅德奧站</b><span class="arr">→</span><b>Haus Nowhere Dosan</b><span class="arr">→</span>島山公園一帶<span class="arr">→</span>午餐<span class="arr">→</span><b>醫美</b>（狎鷗亭／新沙／江南）<span class="arr">→</span>（選）新沙洞林蔭道<span class="arr">→</span>晚餐<span class="arr">→</span><span class="mv">3 號線直達</span>回 G2</div>
+      <table class="tl">
+        <tr><td class="t">09:30</td><td>（選）乙支路3街站搭 2 號線直達<b>三成站</b>（約 35 分）→ <b>奉恩寺</b>（千年古寺，旁邊就是江南高樓）→ 10:30 <b>COEX 星空圖書館</b>（13 公尺高的書牆，10:30 開門、免費）→ 11:15 計程車或地鐵到狎鷗亭羅德奧（約 15–20 分）。<small>去的話島山改 11:30 開始，午餐吃快一點。前一晚在清潭喝到很晚，就跳過這段，10:30 再出發。</small></td></tr>
+        <tr><td class="t">10:30</td><td>沒去選配：10:30 出發，乙支路3街站搭 <b>3 號線直達狎鷗亭站</b>（6 站約 12 分），出站走約 15 分到島山公園；或計程車約 25 分。</td></tr>
+        <tr><td class="t">11:00</td><td><b>Haus Nowhere Dosan</b>（原 Haus Dosan）：Gentle Monster 眼鏡、Tamburins 香氛、B1 的 Nudake 甜點 → 同一條街的 <b>Stüssy 首爾 Chapter</b>（買首爾限定款）→ 島山公園周邊旗艦店（<b>Supreme 島山</b>也在這一帶）→ 狎鷗亭羅德奧街選物店。</td></tr>
+        <tr><td class="t">12:30</td><td>午餐：島山公園附近<b>不用排隊</b>的餐廳（Naver Map 看排隊狀況）。<small>London Bagel Museum 島山店常排很久，下午有醫美預約就別排；沒做醫美再去。</small></td></tr>
+        <tr><td class="t">14:00</td><td><b>醫美</b>（診所自選，預留 2–3 小時；記得帶護照）。</td></tr>
+        <tr><td class="t">17:30</td><td>（選）<b>新沙洞林蔭道</b>散步，<b>Aesop 林蔭道店</b>就在這條路上。<small>想逛規模最大的新世界：<b>新世界江南店</b>在 3 號線高速巴士客運站（新沙搭 2 站，地下相連），平日開到 20:00，B1 有甜點區 Sweet Park；逛完 3 號線直達 G2 旁的乙支路3街站、忠武路站。</small></td></tr>
+        <tr><td class="t">18:00</td><td>晚餐（醫美當天別喝酒、少吃辣）：<b>三元花園</b> 韓式牛排骨／<b>韓一館</b> 韓式烤牛肉 <span class="tier t2">中高價・建議訂</span>；頂級選 <b>Mingles</b>（清潭，米其林星級）<span class="tier t3">高階・要很早訂</span></td></tr>
+        <tr><td class="t">20:00</td><td>回 G2（新沙、狎鷗亭搭 3 號線直達乙支路3街），敷面膜、早點睡。<small>沒做醫美：晚上改去 🍸 <b>M+MS</b>（亞洲第 42 名，島山公園旁，自己釀酒、做發酵，週一休）或清潭那條街的 Zest、Alice、Le Chamber，計程車 25–30 分回 G2；D3 晚上就改回逛樂天世界購物中心。</small></td></tr>
+      </table>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Euljiro+3-ga+Station&destination=Samseong+Station&travelmode=transit" target="_blank" rel="noopener">🚈 （選）乙支路3街 → 三成</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Samseong+Station&destination=Apgujeong+Rodeo+Station&travelmode=transit" target="_blank" rel="noopener">🚈 （選）三成 → 狎鷗亭羅德奧</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Euljiro+3-ga+Station&destination=Apgujeong+Station&travelmode=transit" target="_blank" rel="noopener">🚈 乙支路3街 → 狎鷗亭（3 號線直達）</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Apgujeong+Rodeo+Station&destination=Sinsa+Station&travelmode=transit" target="_blank" rel="noopener">🚈 狎鷗亭 → 新沙</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Sinsa+Station&destination=Myeongdong+Station&travelmode=transit" target="_blank" rel="noopener">🚈 新沙 → 明洞</a>
+      <div class="mapbox"><iframe loading="lazy" src="https://maps.google.com/maps?q=Dosan%20Park%20Seoul&z=15&output=embed" title="狎鷗亭島山地圖"></iframe></div>
+      <div class="spotgrid">
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Bongeunsa+Temple" target="_blank" rel="noopener"><span class="p">📍</span>（選）奉恩寺</a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Starfield+Library+COEX" target="_blank" rel="noopener"><span class="p">📍</span>（選）COEX 星空圖書館</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=하우스+노웨어+도산" target="_blank" rel="noopener"><span class="p">👕</span>Haus Nowhere Dosan</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=스투시+서울+챕터" target="_blank" rel="noopener"><span class="p">👕</span>Stüssy 首爾 Chapter</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=슈프림+도산" target="_blank" rel="noopener"><span class="p">👕</span>Supreme 島山</a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Dosan+Park+Seoul" target="_blank" rel="noopener"><span class="p">📍</span>島山公園</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=Apgujeong+Rodeo+Street" target="_blank" rel="noopener"><span class="p">👕</span>狎鷗亭羅德奧街</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=Garosu-gil+Seoul" target="_blank" rel="noopener"><span class="p">👕</span>新沙洞林蔭道</a>
+        <a class="spot beauty" href="https://www.google.com/maps/search/?api=1&query=이솝+가로수길" target="_blank" rel="noopener"><span class="p">💄</span>Aesop 林蔭道店</a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=런던베이글뮤지엄+도산점" target="_blank" rel="noopener"><span class="p">☕</span>London Bagel Museum 島山</a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=삼원가든" target="_blank" rel="noopener"><span class="p">🍽️</span>三元花園<span class="tier t2">中高</span></a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=한일관+압구정" target="_blank" rel="noopener"><span class="p">🍽️</span>韓一館<span class="tier t2">中高</span></a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=Mingles+Seoul" target="_blank" rel="noopener"><span class="p">🍽️</span>Mingles<span class="tier t3">高階</span></a>
+        <a class="spot bar" href="https://www.google.com/maps/search/?api=1&query=엠엠에스+도산대로49길+32-1" target="_blank" rel="noopener"><span class="p">🍸</span>M+MS（沒做醫美才去）</a>
+      </div>
+      <div class="warn">💉 醫美：拍照的行程都已經排在前三天。2026 年起外國人醫美<b>不能退稅</b>，比價看含稅價。做完照診所指示：當天別喝酒、別泡三溫暖。明天要在戶外跨年，冷風會刺激皮膚，記得戴口罩和圍巾。</div>
+    </div>
+
+    <!-- Day 5 -->
+    <div class="day" id="d5">
+      <div class="dh"><span class="dn">Day 5</span><span class="dd">12/31（四）弘大・延南洞＋明洞廣場跨年</span><span class="dayb d-hd">弘大</span><span class="dayb d-mg">跨年</span></div>
+      <div class="path">G2<span class="arr">→</span>（選）<span class="mv">2 號線 2 站到市廳</span><b>德壽宮</b>、11:00 看守門將換崗<span class="arr">→</span><span class="mv">2 號線到合井轉 6 號線，約 25 分</span><span class="arr">→</span><b>望遠市場</b>午餐<span class="arr">→</span><span class="mv">6 號線 1 站／走 20 分</span><span class="arr">→</span><b>弘大購物街</b><span class="arr">→</span><b>延南洞</b>京義線林蔭道<span class="arr">→</span><span class="mv">AREX＋4 號線，約 25 分</span><span class="arr">→</span><b>新世界百貨本店</b><span class="arr">→</span>晚餐<span class="arr">→</span>回 G2 放東西<span class="arr">→</span>（選）🍸 Charles H.<span class="arr">→</span><span class="mv">22:30 走 15 分</span><span class="arr">→</span><b>明洞廣場跨年演唱會</b>（新世界本店前）00:00 倒數＋煙火<span class="arr">→</span>走回 G2</div>
+      <table class="tl">
+        <tr><td class="t">10:00</td><td>（選）乙支路3街站搭 2 號線 2 站到市廳站（或從 G2 走約 20 分）到<b>德壽宮</b>，逛宮殿和外面的石牆路 → 11:00 在大漢門前看<b>守門將換崗</b> → 從市廳站搭 2 號線到合井、轉 6 號線 1 站到望遠（約 25 分）。<small>德壽宮星期一休館，這天（星期四）有開；門票 ₩1,000。天氣太冷或下雪，換崗可能取消。去的話望遠市場改 11:45，後面都往後延約 45 分。</small></td></tr>
+                <tr><td class="t">11:00</td><td><b>望遠市場</b>當午餐：可樂餅、炸雞、各種小吃 <span class="tier t1">平價</span>。<small>沒去德壽宮：10:30 從乙支路3街站搭 2 號線到合井（8 站），轉 6 號線 1 站（約 30 分）。</small></td></tr>
+                <tr><td class="t">12:15</td><td><b>弘大</b>：搭 6 號線 1 站回合井（或走約 20 分），從合井那頭一路逛到弘大入口站：弘大購物街（平價服飾、古著、球鞋）、<b>Musinsa Standard 弘大</b>、<b>Kakao Friends 弘大旗艦店</b>、<b>AK&amp; 弘大</b>（車站商場）。</td></tr>
+        <tr><td class="t">14:30</td><td><b>延南洞</b>：京義線林蔭道，沿路都是咖啡店和選物店。</td></tr>
+        <tr><td class="t">16:00</td><td><b>新世界百貨本店</b>：弘大入口站搭 AREX 普通車到首爾站，轉 4 號線 1 站到會賢站（跟新世界地下相連），約 25 分；或計程車約 20–25 分。本館、新館的精品、服飾、化妝品專櫃，B1 美食街和甜點；新館 8–12 樓是<b>新世界免稅店</b>（帶護照和回程班機資料，商品在 1/1 出境時到機場領）。<small>12/31 有營業，往年開到 20:00 左右，以官網公告為準；1/1 百貨公司全部公休，所以排今天。（選）對面的樂天百貨本店、樂天免稅店走路約 8 分。逛完出來天已經黑了，門口的外牆燈光秀 17:00 就開始。</small></td></tr>
+        <tr><td class="t">18:00</td><td>晚餐（就在明洞、乙支路一帶）：明洞路邊攤 <span class="tier t1">平價</span>／<b>乙支路啤酒巷</b>（啤酒配明太魚乾）<span class="tier t1">平價</span>／<b>王妃家</b> 韓牛烤肉 <span class="tier t2">中價</span>／<b>又來屋</b> 平壤冷麵＋烤牛肉 <span class="tier t2">中價</span>／<b>金豬食堂</b> 豬肉烤肉（要排隊）<span class="tier t2">中價</span></td></tr>
+        <tr><td class="t">19:15</td><td>從新世界走約 15 分回 G2 放戰利品、休息，換上最保暖的衣服。<small>隔天晚上才搭機，不用今晚打包。</small></td></tr>
+        <tr><td class="t">20:00</td><td>（選）🍸 <b>Charles H.</b>（亞洲 50 大酒吧 51–100 名，四季酒店 B1）喝一杯，22:00 走約 25 分到明洞廣場（叫得到計程車約 7 分）。<small>12/31 酒吧常有跨年活動、要另外訂或收費，先用 TableCheck／CatchTable 訂、問清楚；前一天做了醫美就點無酒精調酒。</small></td></tr>
+        <tr><td class="t">22:30</td><td>穿最保暖的衣服，從 G2 走約 15 分到<b>明洞廣場</b>（新世界本店前）。往年 23:00 開始<b>跨年演唱會</b>（KBS 直播），新世界外牆媒體秀倒數，00:00 放煙火，01:00 結束。<small>舞台前的觀眾區要抽籤（去年是 KBS 官網報名，1,000 名免費，12/18 截止）；沒抽到就在中央郵局前、會賢站一帶看外牆大螢幕。2026 年的場次還沒公布（去年是第一屆，中區說要年年辦），12 月初再確認。</small></td></tr>
+        <tr><td class="t">00:00</td><td>倒數＋煙火 → 01:00 散場，走回 G2（約 15 分）。隔天下午才去機場，可以睡飽。<small><b>人太多、封路或走不過去</b>：就照原本行程走去<b>普信閣</b>敲鐘（從 G2 走約 17 分，一樣不用搭車）。想要派對感也可以改去 <b>DDP 首爾之光倒數</b>（往年 23:00–00:30，免費免預約，DJ＋外牆媒體秀＋煙火），但要搭 2 號線 2 站。</small></td></tr>
+      </table>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=City+Hall+Station+Seoul&destination=Mangwon+Market&travelmode=transit" target="_blank" rel="noopener">🚈 （選）市廳 → 望遠市場</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Euljiro+3-ga+Station&destination=Mangwon+Market&travelmode=transit" target="_blank" rel="noopener">🚈 乙支路3街 → 望遠市場</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Mangwon+Market&destination=Hongik+University+Station&travelmode=transit" target="_blank" rel="noopener">🚈 望遠市場 → 弘大</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Hongik+University+Station&destination=Hoehyeon+Station&travelmode=transit" target="_blank" rel="noopener">🚈 弘大 → 會賢（新世界本店）</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Hongik+University+Station&destination=Euljiro+3-ga+Station&travelmode=transit" target="_blank" rel="noopener">🚈 （不逛新世界）弘大 → 乙支路3街（G2）</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Euljiro+3-ga+Station&destination=Yaksu+Station&travelmode=transit" target="_blank" rel="noopener">🚈 乙支路3街 → 藥水（金豬食堂，3 號線 3 站）</a>
+      <a class="maplink g" href="https://www.google.com/maps/search/?api=1&query=Shinsegae+Department+Store+Main+Store+Seoul" target="_blank" rel="noopener">📍 明洞廣場（新世界本店前）</a>
+      <a class="maplink g" href="https://www.google.com/maps/search/?api=1&query=Bosingak+Seoul" target="_blank" rel="noopener">📍 （備案）普信閣</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Euljiro+3-ga+Station&destination=Dongdaemun+History+%26+Culture+Park+Station&travelmode=transit" target="_blank" rel="noopener">🚈 （備案）乙支路3街 → DDP</a>
+      <div class="mapbox"><iframe loading="lazy" src="https://maps.google.com/maps?q=Hongik%20University%20Station&z=15&output=embed" title="弘大地圖"></iframe></div>
+      <div class="spotgrid">
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Deoksugung+Palace" target="_blank" rel="noopener"><span class="p">📍</span>（選）德壽宮</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=AK%26+홍대" target="_blank" rel="noopener"><span class="p">👕</span>AK&amp; 弘大</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=무신사+스탠다드+홍대" target="_blank" rel="noopener"><span class="p">👕</span>Musinsa Standard 弘大</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=카카오프렌즈+홍대플래그십스토어" target="_blank" rel="noopener"><span class="p">👕</span>Kakao Friends 弘大旗艦</a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Hongdae+Shopping+Street" target="_blank" rel="noopener"><span class="p">📍</span>弘大購物街</a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=경의선숲길+연남동" target="_blank" rel="noopener"><span class="p">📍</span>延南洞 京義線林蔭道</a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=망원시장" target="_blank" rel="noopener"><span class="p">🍽️</span>望遠市場<span class="tier t1">平價</span></a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=Shinsegae+Department+Store+Main+Store+Seoul" target="_blank" rel="noopener"><span class="p">👕</span>新世界百貨本店</a>
+        <a class="spot beauty" href="https://www.google.com/maps/search/?api=1&query=신세계면세점+명동점" target="_blank" rel="noopener"><span class="p">💄</span>新世界免稅店（新館 8–12F）</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=Lotte+Department+Store+Main+Branch+Seoul" target="_blank" rel="noopener"><span class="p">👕</span>（選）樂天百貨本店／免稅店</a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=Myeongdong+Street+Food" target="_blank" rel="noopener"><span class="p">🍽️</span>明洞路邊攤<span class="tier t1">平價</span></a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=왕비집+명동" target="_blank" rel="noopener"><span class="p">🍽️</span>王妃家 烤肉<span class="tier t2">中價</span></a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=을지로+노가리골목" target="_blank" rel="noopener"><span class="p">🍽️</span>乙支路啤酒巷<span class="tier t1">平價</span></a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=우래옥" target="_blank" rel="noopener"><span class="p">🍽️</span>又來屋<span class="tier t2">中價</span></a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=금돼지식당" target="_blank" rel="noopener"><span class="p">🍽️</span>金豬食堂<span class="tier t2">中價</span></a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Shinsegae+Department+Store+Main+Store+Seoul" target="_blank" rel="noopener"><span class="p">🎆</span>明洞廣場跨年（新世界本店前）</a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Bosingak+Seoul" target="_blank" rel="noopener"><span class="p">📍</span>（備案）普信閣敲鐘</a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Dongdaemun+Design+Plaza" target="_blank" rel="noopener"><span class="p">🎆</span>（備案）DDP 首爾之光倒數</a>
+        <a class="spot bar" href="https://www.google.com/maps/search/?api=1&query=Charles+H.+Four+Seasons+Hotel+Seoul" target="_blank" rel="noopener"><span class="p">🍸</span>（選）Charles H.</a>
+      </div>
+      <div class="warn">🎆 跨年：明洞廣場、普信閣、DDP 都人擠人，<b>從 G2 走路來回最穩</b>（明洞廣場 15 分、普信閣 17 分）。明洞廣場進不去、太擠或封路，就照原本行程走去普信閣。往年 23:00–01:00 鐘閣站列車不停車；地鐵延長到凌晨 2 點左右（以當年公告為準）。人非常多：手機充飽、約好走散時的集合點、包包背前面。12/31 有些餐廳會提早打烊，出發前用 Naver Map 確認。</div>
+    </div>
+
+    <!-- Day 6 -->
+    <div class="day" id="d6">
+      <div class="dh"><span class="dn">Day 6</span><span class="dd">1/1（五）明洞最後採買｜19:45 起飛</span><span class="dayb d-mg">明洞</span><span class="dayb d-mv">移動日</span></div>
+      <div class="path">睡飽<span class="arr">→</span>11:00 G2 退房、寄放行李<span class="arr">→</span>（選）<span class="mv">南山纜車</span><b>N首爾塔</b><span class="arr">→</span>午餐<span class="arr">→</span><b>明洞</b>最後採買<span class="arr">→</span>15:30 拿行李<span class="arr">→</span><span class="mv">計程車 10 分</span><span class="arr">→</span><b>首爾站</b>（選）樂天超市<span class="arr">→</span><span class="mv">AREX 直達車 43 分</span><span class="arr">→</span><b>仁川</b> 約 17:15<span class="arr">→</span>19:45 起飛</div>
+      <table class="tl">
+        <tr><td class="t">09:30</td><td>跨年晚睡，睡飽再起床；飯店有含早餐就吃完再出門。</td></tr>
+        <tr><td class="t">11:00</td><td>G2 退房（11:00 前），<b>行李寄放在櫃台</b>到下午。<small>1/1 是韓國國定假日：<b>百貨公司全部公休</b>（新世界、樂天、現代都一樣），Olive Young、Daiso、大型超市照常營業。</small></td></tr>
+        <tr><td class="t">11:15</td><td>（選）從 G2 走約 15 分（上坡），或搭計程車約 5 分到<b>南山纜車</b>（10:00–23:00）→ <b>N首爾塔</b>看白天的首爾全景（假日開到 23:00）。<small>想在塔上吃午餐：<b>N.Grill</b> 法式套餐，假日 12:00 開始，要先訂；訂位送展望台門票。</small><span class="tier t3">高階</span></td></tr>
+        <tr><td class="t">12:45</td><td>午餐（沒上南山就早一點吃）：<b>明洞餃子</b>（刀削麵＋餃子）<span class="tier t1">平價</span>／<b>河東館</b> 牛骨湯 <span class="tier t1">平價</span>。<small>這兩間 1/1 都有開（明洞餃子只休農曆年、中秋；河東館開到 16:00，賣完就收）；其他餐廳 1/1 可能休息，前一天用 Naver Map 確認。</small></td></tr>
+        <tr><td class="t">13:45</td><td>明洞最後採買：<b>Olive Young 明洞 Town</b>（每天 10:00–22:30）→ <b>Daiso 明洞站店</b>（12 層）→ 藥局（解酒、痘痘藥膏）。（選）香氛 <b>Hetras 明洞店</b>（명동6길 10，從 G2 走約 10 分；每天 11:00–23:00），聖水沒買夠可以在這裡補；1/1 有沒有開，出發前看官方 IG <b>@hetras_official</b>。<small>結帳帶護照，同一張收據滿 ₩15,000 直接退稅。</small></td></tr>
+        <tr><td class="t">15:30</td><td>回 G2 拿行李 → 計程車到首爾站（約 10 分）。<small>叫不到車：走 6 分到明洞站，搭 4 號線 2 站到首爾站；或在明洞搭 6015 機場巴士直達機場（約 70–90 分，₩17,000）。</small></td></tr>
+        <tr><td class="t">15:45</td><td>（選）<b>樂天超市首爾站店</b>（跟首爾站相連；大型超市 1/1 照常營業）：零食、泡麵、海苔，可以退稅。行李可以先放首爾站的置物櫃，買完直接裝進行李箱。</td></tr>
+        <tr><td class="t">16:30</td><td>搭 <b>AREX 直達車</b>（約每 30–40 分一班）→ 約 17:15 到仁川 T1（T2 再 8 分）。</td></tr>
+        <tr><td class="t">17:15</td><td>還沒在店裡退稅的單據，先到退稅機辦；<b>要託運的商品，在報到前辦</b>。報到、託運、出境；1/1 機場人多，寧可早到。</td></tr>
+        <tr><td class="t">19:45</td><td>起飛 ✈️</td></tr>
+      </table>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=37.5632867,126.9903453&destination=Namsan+Cable+Car&travelmode=transit" target="_blank" rel="noopener">🚈 （選）G2 → 南山纜車</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=37.5632867,126.9903453&destination=Seoul+Station&travelmode=transit" target="_blank" rel="noopener">🚈 G2 → 首爾站</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Seoul+Station&destination=Incheon+International+Airport+Terminal+1&travelmode=transit" target="_blank" rel="noopener">🚈 首爾站 → 仁川 T1</a>
+      <a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Seoul+Station&destination=Incheon+International+Airport+Terminal+2&travelmode=transit" target="_blank" rel="noopener">🚈 首爾站 → 仁川 T2</a>
+      <div class="spotgrid">
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=Namsan+Cable+Car" target="_blank" rel="noopener"><span class="p">📍</span>（選）南山纜車</a>
+        <a class="spot" href="https://www.google.com/maps/search/?api=1&query=N+Seoul+Tower" target="_blank" rel="noopener"><span class="p">📍</span>（選）N首爾塔</a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=N.Grill+N+Seoul+Tower" target="_blank" rel="noopener"><span class="p">🍽️</span>（選）N.Grill<span class="tier t3">高階</span></a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=명동교자+본점" target="_blank" rel="noopener"><span class="p">🍽️</span>明洞餃子<span class="tier t1">平價</span></a>
+        <a class="spot eat" href="https://www.google.com/maps/search/?api=1&query=하동관+명동본점" target="_blank" rel="noopener"><span class="p">🍽️</span>河東館 牛骨湯<span class="tier t1">平價</span></a>
+        <a class="spot beauty" href="https://www.google.com/maps/search/?api=1&query=올리브영+명동타운" target="_blank" rel="noopener"><span class="p">💄</span>Olive Young 明洞 Town</a>
+        <a class="spot beauty" href="https://www.google.com/maps/search/?api=1&query=다이소+명동역점" target="_blank" rel="noopener"><span class="p">💄</span>Daiso 明洞站店</a>
+        <a class="spot beauty" href="https://www.google.com/maps/search/?api=1&query=헤트라스+명동" target="_blank" rel="noopener"><span class="p">💄</span>（選）Hetras 明洞店</a>
+        <a class="spot wear" href="https://www.google.com/maps/search/?api=1&query=롯데마트+서울역점" target="_blank" rel="noopener"><span class="p">🛒</span>（選）樂天超市首爾站店</a>
+      </div>
+      <div class="warn">⚠️ 1/1 的 AREX 是假日班表，前一天在 AREX 官網確認班次；航廈（T1／T2）以機票上的為準。17:15 到機場是起飛前 2.5 小時，要退稅的東西很多就再早 30 分出發。</div>
+    </div>
+  </div>
+
+  <!-- ===== 點到點交通表 ===== -->
+  <div class="sec rail" id="legs">
+    <h2>🚇 點到點交通表</h2>
+    <p class="lead">常用路段一次看。時間是大概的，票價以當地為準（地鐵刷 T-money 單程約 ₩1,550 起）。</p>
+    <table class="legs">
+      <tr><th style="width:30%;">路段</th><th>怎麼去</th><th style="width:15%;">時間</th><th style="width:14%;">路線</th></tr>
+      <tr>
+        <td class="leg">仁川 T1／T2 → 首爾站<small>D1 抵達、D6 回程</small></td>
+        <td><span class="mode m-arex">AREX 直達車</span> 全車對號、不停站，約 ₩1.1–1.3 萬；機場出發末班約 22:48，回程 1/1 是假日班表</td>
+        <td>43 分（T2 51 分）</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Incheon+International+Airport+Terminal+1&destination=Seoul+Station&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">仁川 → 首爾站（省錢版）</td>
+        <td><span class="mode m-arex">AREX 普通車</span> 站站停，刷 T-money 約 ₩4,500</td>
+        <td>約 60 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Incheon+International+Airport+Terminal+1&destination=Seoul+Station&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">明洞 ↔ 仁川機場<small>D1／D6 備案，不用轉車</small></td>
+        <td><span class="mode m-bus">6015 機場巴士</span> ₩17,000；機場出發末班 T1 約 21:50、T2 約 21:30（T2 要先買票）</td>
+        <td>70–90 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Myeongdong+Station&destination=Incheon+International+Airport+Terminal+1&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">首爾站 ↔ G2<small>D1 抵達、D6 回程</small></td>
+        <td><span class="mode m-sub">4 號線</span> 2 站到明洞站，走約 6 分；帶行李搭<span class="mode m-taxi">計程車</span>約 ₩6,000–8,000</td>
+        <td>15 分／10 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Seoul+Station&destination=37.5632867,126.9903453&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">乙支路3街 → 景福宮<small>D2（G2 走 6 分到乙支路3街站）</small></td>
+        <td><span class="mode m-sub">3 號線</span> 直達 3 站（鐘路3街上車是 2 站）</td>
+        <td>約 10 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Euljiro+3-ga+Station&destination=Gyeongbokgung+Palace&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">鐘路5街 → 鐘閣<small>D2 廣藏市場 → 清溪川（沒訂到 Bar Cham 時）</small></td>
+        <td><span class="mode m-sub">1 號線</span> 2 站</td>
+        <td>5 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Jongno+5-ga+Station&destination=Jonggak+Station&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">廣藏市場 → 西村（Bar Cham）<small>D2 晚</small></td>
+        <td><span class="mode m-taxi">計程車</span> 約 ₩8,000；地鐵要轉車，不建議</td>
+        <td>15–20 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Gwangjang+Market&destination=Gyeongbokgung+Station&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">乙支路3街 → 聖水<small>D3</small></td>
+        <td><span class="mode m-sub">2 號線</span> 直達</td>
+        <td>約 16 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Euljiro+3-ga+Station&destination=Seongsu+Station&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">聖水 → 蠶室<small>D3</small></td>
+        <td><span class="mode m-sub">2 號線</span> 直達</td>
+        <td>約 12 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Seongsu+Station&destination=Jamsil+Station&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">蠶室 → 乙支路3街<small>D3 回 G2（不去酒吧時）</small></td>
+        <td><span class="mode m-sub">2 號線</span> 直達</td>
+        <td>約 30 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Jamsil+Station&destination=Euljiro+3-ga+Station&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">蠶室 → 清潭（Zest、Alice）<small>D3 晚</small></td>
+        <td><span class="mode m-taxi">計程車</span> 約 ₩10,000</td>
+        <td>15–20 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Jamsil+Station&destination=26+Dosan-daero+55-gil+Gangnam-gu+Seoul&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">清潭 → G2<small>D3 深夜回飯店</small></td>
+        <td><span class="mode m-taxi">計程車</span> 約 ₩15,000–22,000（22:00–04:00 有深夜加成）</td>
+        <td>25–30 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=26+Dosan-daero+55-gil+Gangnam-gu+Seoul&destination=37.5632867,126.9903453&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">乙支路3街 → 島山公園<small>D4</small></td>
+        <td><span class="mode m-sub">3 號線</span> 直達狎鷗亭站 6 站，出站<span class="mode m-walk">步行</span>約 15 分</td>
+        <td>約 30 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Euljiro+3-ga+Station&destination=Dosan+Park+Seoul&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">乙支路3街 → 三成<small>D4（選）奉恩寺、星空圖書館</small></td>
+        <td><span class="mode m-sub">2 號線</span> 直達</td>
+        <td>約 35 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Euljiro+3-ga+Station&destination=Samseong+Station&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">新沙 → 新世界江南店<small>D4（選）</small></td>
+        <td><span class="mode m-sub">3 號線</span> 2 站到高速巴士客運站（跟百貨地下相連）；逛完 3 號線直達乙支路3街、忠武路</td>
+        <td>5 分／回飯店約 20 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Sinsa+Station&destination=Express+Bus+Terminal+Station&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">三成 → 狎鷗亭羅德奧<small>D4（選）</small></td>
+        <td><span class="mode m-sub">地鐵</span> 轉 1 次；或<span class="mode m-taxi">計程車</span></td>
+        <td>15–20 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Samseong+Station&destination=Apgujeong+Rodeo+Station&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">乙支路3街 → 望遠市場<small>D5</small></td>
+        <td><span class="mode m-sub">2 號線</span> 到合井，轉 <span class="mode m-sub">6 號線</span> 1 站到望遠</td>
+        <td>約 30 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Euljiro+3-ga+Station&destination=Mangwon+Market&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">市廳 → 望遠市場<small>D5（選）德壽宮之後</small></td>
+        <td><span class="mode m-sub">2 號線</span> 到合井，轉 <span class="mode m-sub">6 號線</span> 1 站</td>
+        <td>約 25 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=City+Hall+Station+Seoul&destination=Mangwon+Market&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">望遠市場 → 弘大<small>D5</small></td>
+        <td><span class="mode m-sub">6 號線</span> 1 站到合井；或<span class="mode m-walk">步行</span>約 20 分</td>
+        <td>10–20 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Mangwon+Market&destination=Hongik+University+Station&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">弘大入口 → 新世界本店<small>D5 下午</small></td>
+        <td><span class="mode m-arex">AREX 普通車</span>到首爾站，轉 <span class="mode m-sub">4 號線</span> 1 站到會賢（地下相連）；或<span class="mode m-taxi">計程車</span></td>
+        <td>約 25 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Hongik+University+Station&destination=Hoehyeon+Station&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">G2 → 明洞廣場（新世界本店前）<small>D5 跨年</small></td>
+        <td><span class="mode m-walk">步行</span> 去回都走路；散場人多，不要等計程車</td>
+        <td>約 15 分</td>
+        <td><a class="maplink g" href="https://www.google.com/maps/search/?api=1&query=Shinsegae+Department+Store+Main+Store+Seoul" target="_blank" rel="noopener">📍 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">乙支路3街 → DDP<small>D5 跨年備案</small></td>
+        <td><span class="mode m-sub">2 號線</span> 2 站到東大門歷史文化公園站；回程走約 30 分或搭 2 號線（跨年夜延長行駛）</td>
+        <td>約 5 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=Euljiro+3-ga+Station&destination=Dongdaemun+History+%26+Culture+Park+Station&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">G2 → 普信閣<small>D5 跨年備案</small></td>
+        <td><span class="mode m-walk">步行</span> 往北過清溪川到鐘路；23:00–01:00 鐘閣站不停車</td>
+        <td>約 17 分</td>
+        <td><a class="maplink g" href="https://www.google.com/maps/search/?api=1&query=Bosingak+Seoul" target="_blank" rel="noopener">📍 開啟</a></td>
+      </tr>
+      <tr>
+        <td class="leg">G2 → 南山纜車<small>D6（選）N首爾塔</small></td>
+        <td><span class="mode m-walk">步行</span> 上坡約 15 分，或<span class="mode m-taxi">計程車</span>約 5 分；纜車 10:00–23:00</td>
+        <td>約 15 分</td>
+        <td><a class="maplink" href="https://www.google.com/maps/dir/?api=1&origin=37.5632867,126.9903453&destination=Namsan+Cable+Car&travelmode=transit" target="_blank" rel="noopener">🚈 開啟</a></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ===== 交通小提醒 ===== -->
+  <div class="sec tips">
+    <h2>📝 交通小提醒</h2>
+    <ul class="tips">
+      <li>📱 <b>先裝 App</b>：Naver Map（走路找店）、Google 地圖（查地鐵，本頁按鈕直接開）、Kakao T 或 Uber（叫車）、Papago（翻譯，可以拍菜單）。</li>
+      <li>🕛 <b>地鐵末班車</b>大約 24:00 前後；跨年夜往年延長到凌晨 2 點左右。</li>
+      <li>🍸 <b>喝完酒回飯店</b>：西村（D2）走回光化門，再搭 2 號線（市廳 → 乙支路3街 2 站）或計程車約 10 分回 G2；清潭（D3）搭計程車約 25–30 分。<b>22:00–04:00 有深夜加成</b>，車資比白天多 2–4 成。</li>
+      <li>🥶 <b>12 月底很冷</b>（晚上常常零下 5–10 度）：戶外行程排白天，晚上多逛室內；地鐵站、百貨公司裡都有暖氣，洋蔥式穿法最方便。</li>
+      <li>🧳 <b>買太多</b>：明洞、弘大有很多便宜行李箱店；或回飯店先放，隔天再出門。</li>
+    </ul>
+    <div class="warn">⚠️ 時間、票價與營業時間是規劃估算，出發前與當天以官網、Naver Map 為準。</div>
+  </div>
+
+  <footer>首爾跨年 6 天 5 夜・每日行程與路徑　|　搭配「2-藥妝潮牌美食地圖」與「3-出發前後注意事項」一起看　|　時間、營業時間與票價為規劃估算，出發前請再確認</footer>
+</div>
+</body>
+</html>
